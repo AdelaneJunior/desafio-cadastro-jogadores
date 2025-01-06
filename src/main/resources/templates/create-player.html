@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro do Jogador UOL</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f9f9f9;
+        }
+        .container {
+            width: 320px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+        .container h1 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"] {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .form-group input[type="radio"] {
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+        .form-group .radio-group {
+            display: flex;
+            flex-direction: column;
+        }
+        .form-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .form-actions button,
+        .form-actions a {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            background-color: #007bff;
+            color: #fff;
+            font-weight: bold;
+        }
+        .form-actions button:hover,
+        .form-actions a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Cadastro do jogador</h1>
+    <form th:action="@{/player/create}" th:object="${player}" method="post">
+        <!-- Nome -->
+        <div class="form-group">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" th:field="*{name}" placeholder="Digite seu nome" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" th:field="*{email}" placeholder="Digite seu e-mail" required>
+        </div>
+
+
+        <div class="form-group">
+            <label for="telefone">Telefone:</label>
+            <input type="tel" id="telefone" th:field="*{phoneNumber}" placeholder="Digite seu telefone">
+        </div>
+
+
+        <div class="form-group">
+            <label>Quero ser do grupo:</label>
+            <div class="radio-group">
+                <label>
+                    <input type="radio" th:field="*{teamId}" value="1" required>
+                    Liga da Justiça
+                </label>
+                <label>
+                    <input type="radio" th:field="*{teamId}" value="2" required>
+                    Os Vingadores
+                </label>
+            </div>
+        </div>
+
+        <div th:if="${message}"
+             th:class="${messageType == 'success' ? 'alert alert-success' : 'alert alert-danger'}">
+            <p th:text="${message}"></p>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit">Cadastrar</button>
+            <a th:href="@{/player/list}">Listar jogadores</a>
+        </div>
+    </form>
+</div>
+</body>
+</html>
