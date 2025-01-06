@@ -1,6 +1,6 @@
 package br.com.adelanejunior.desafio_cadastro_jogadores.requests;
 
-import br.com.adelanejunior.desafio_cadastro_jogadores.ConversorType;
+import br.com.adelanejunior.desafio_cadastro_jogadores.enums.ConversorType;
 import br.com.adelanejunior.desafio_cadastro_jogadores.dto.TeamDTO;
 import br.com.adelanejunior.desafio_cadastro_jogadores.model.impl.Team;
 import br.com.adelanejunior.desafio_cadastro_jogadores.repository.TeamRepository;

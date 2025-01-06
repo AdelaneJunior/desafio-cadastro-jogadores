@@ -1,4 +1,4 @@
-package br.com.adelanejunior.desafio_cadastro_jogadores;
+package br.com.adelanejunior.desafio_cadastro_jogadores.enums;
 
 import br.com.adelanejunior.desafio_cadastro_jogadores.conversor.Conversor;
 import br.com.adelanejunior.desafio_cadastro_jogadores.dto.TeamDTO;
