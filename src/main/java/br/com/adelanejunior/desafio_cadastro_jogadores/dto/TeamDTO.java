@@ -1,20 +1,22 @@
 package br.com.adelanejunior.desafio_cadastro_jogadores.dto;
 
 import com.google.gson.annotations.SerializedName;
-import jakarta.xml.bind.annotation.XmlElement;
-import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
-@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlRootElement(name = "liga_da_justica")
 public class TeamDTO {
 
     private int id;
     private String name;
 
+    @XmlElementWrapper(name = "codinomes")
     @XmlElement(name = "codinome")
     @SerializedName("codinome")
-    private List<String> nickNames;
+    private List<String> nickNames = new ArrayList<>();
 
     public TeamDTO(){
 
